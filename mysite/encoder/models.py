@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Img(models.Model):
-    name = "plain_image"
+    name = models.CharField(default="plain_image", max_length=50)
     img = models.ImageField(upload_to='images/')
     secret_msg = models.CharField(max_length=100)
 
