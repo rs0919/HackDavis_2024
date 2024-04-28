@@ -9,3 +9,6 @@ from django.db import models
 
 class User(models.Model):
     email = models.CharField(max_length=50) # can change to email field later
+
+    def __str__(self): # when querying db, it will list email, not id
+        return self.email

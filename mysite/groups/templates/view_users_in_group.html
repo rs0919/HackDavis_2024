@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>group members</title>
+</head>
+<body>
+    <h1>Group members</h1>
+    <form method = "post">
+        {% csrf_token %}
+            {% for user in users.item_set.all %}
+            <b>{{user.email}}</b>
+            {% endfor%}
+        
+
+        <div>
+            <div>
+                <button type="submit", name="newItem", value="newItem">Add Item</button>
+            </div>
+            <input type="text", name="new">
+        </div>
+
+        <button type="submit", name="save", value="save">Save</button>   
+
+    </form>
+</body>
+</html>
