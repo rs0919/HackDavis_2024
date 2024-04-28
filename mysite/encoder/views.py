@@ -29,7 +29,7 @@ def encoded_image_view(request):
     if request.method == "GET":
         encode_image("../media/images/plain_image")
         Imgs = Img.objects.all()
-        return render((request, 'encoded_image_display.html', {'images': Imgs}))
+        return render(request, 'encoded_image_display.html', {'images': Imgs})
 
 def encode_image(file_name):
     return 2
