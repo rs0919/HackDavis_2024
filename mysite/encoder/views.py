@@ -43,7 +43,8 @@ def encoded_image_view(request):
         Imgs = (Img.objects.filter(name="plain_image")).order_by("id")
         key = "1010101010" # change later so it's not hard coded
         #new_encoded_img = encode_image("./media/images/plain_image.png", Imgs[0].secret_msg, key)
-        new_encoded_img = encode_image("./media/images/plain_image.png", "some str", key)
+        for img in Imgs.iterator():
+            new_encoded_img = encode_image("./media/images/plain_image.png", img.secret_msg, key)
 
         #new_encoded_img.save("newly_encoded_img.png")
         save_image(new_encoded_img, "./media/encoded_images", "newly_encoded_img.png")
