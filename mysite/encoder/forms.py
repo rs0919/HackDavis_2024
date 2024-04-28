@@ -1,8 +1,15 @@
 from django import forms
-from .models import Img
+from .models import Img, EncodedImg
 
 class ImgForm(forms.ModelForm):
 
     class Meta:
         model = Img
-        fields = ['name', 'img', 'secret_msg']
+        fields = ['img', 'secret_msg']
+
+
+class EncodedImgForm(forms.ModelForm):
+
+    class Meta:
+        model = EncodedImg
+        fields = ['name', 'encoded_img']

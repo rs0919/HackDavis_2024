@@ -15,7 +15,7 @@ def image_view(request):
 
         if form.is_valid():
             form.save()
-            return redirect('success')
+            return redirect('encoded_image_view')
     else:
         form = ImgForm()
     
@@ -25,4 +25,8 @@ def success(request):
     return HttpResponse('successfully uploaded')
 
 def encoded_image_view(request):
+    encode_image("../media/images/plain_image")
     return render(request, 'encoded_image_display.html')
+
+def encode_image(file_name):
+    return 2
