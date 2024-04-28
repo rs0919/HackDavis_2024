@@ -27,7 +27,15 @@ def image_view(request):
                         source = str(file)
             os.rename("./media/images/" + source, "./media/images/plain_image.png")
             # this code block ^ renames the image to the same thing every time            
-            
+
+            source2 = "secret_image.png"
+            for root, dirs, files in os.walk("./media/secret_images/"):
+                for file in files:
+                    if file.endswith('.png') or file.endswith('.jpg'):
+                        source2 = str(file)
+            os.rename("./media/secret_images/" + source2, "./media/secret_images/secret_image.png")
+            # this code block ^ renames the image to the same thing every time            
+
             return redirect('images')
     else:
         form = ImgForm()
