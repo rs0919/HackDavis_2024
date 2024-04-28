@@ -16,6 +16,15 @@ def image_view(request):
 
         if form.is_valid():
             form.save()
+
+            source = "plain_image.png"
+            for root, dirs, files in os.walk("./media/images_to_decode/"):
+                for file in files:
+                    if file.endswith('.png') or file.endswith('.jpg'):
+                        source = str(file)
+            # this code block ^ renames the image to the same thing every time
+
+            os.rename("./media/images_to_decode/" + source, "./media/images_to_decode/encoded_image.png")
             return redirect('secret_message')
     else:
         form = ImgToDecodeForm()
