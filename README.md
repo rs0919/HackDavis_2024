@@ -3,3 +3,5 @@
 
 ### Project info:
 Django ver 4.2.11
+
+pip install pillow
