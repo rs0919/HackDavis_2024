@@ -44,7 +44,7 @@ def encode_image(image_path, secret_message, key):
     
     return encoded
 
-def decode_image(image_path, key):
+def decode_image(image_path, key ):
     img = Image.open(image_path)
     binary_message = ''
     width, height = img.size
