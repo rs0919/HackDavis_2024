@@ -41,11 +41,11 @@ def encoded_image_view(request):
     if request.method == "GET":
         #Imgs = Img.objects.all()
         Imgs = (Img.objects.filter(name="plain_image")).order_by("id")
-        key = "1010101010"
+        key = "1010101010" # change later so it's not hard coded
         #new_encoded_img = encode_image("./media/images/plain_image.png", Imgs[0].secret_msg, key)
         new_encoded_img = encode_image("./media/images/plain_image.png", "some str", key)
 
-        new_encoded_img.save("newly_encoded_img.png")
+        #new_encoded_img.save("newly_encoded_img.png")
         save_image(new_encoded_img, "./media/encoded_images", "newly_encoded_img.png")
         os.system('rm -rf ./media/images/*') # clear folder (not encoded img folder)
         return render(request, 'encoded_image_display.html', {'encoded_image': new_encoded_img})
@@ -64,8 +64,7 @@ def encode_image(file_name, message, key):
     img = Image.open(file_name)
     binary_message = message_to_bin(message) + '1111111111111110'  # Adding a delimiter
     if img.mode != 'RGB':
-        print("Image mode needs to be RGB")
-        return False
+        img = img.convert('RGB')
     encoded = img.copy()
     width, height = img.size
     index = 0
