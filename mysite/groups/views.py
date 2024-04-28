@@ -17,3 +17,5 @@ def view_users_in_group(request):
             form.save()
 
         return render(request, "view_users_in_group.html", {'form': form})
+    
+    return HttpResponse("groups listed here:")
