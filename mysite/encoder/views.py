@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .forms import ImgForm
 from .models import Img
 
+import os
+
 # Create your views here.
 
 def index(request):
@@ -29,6 +31,7 @@ def encoded_image_view(request):
     if request.method == "GET":
         encode_image("../media/images/plain_image")
         Imgs = Img.objects.all()
+        os.system('rm -rf ./media/images/*') # clear folder
         return render(request, 'encoded_image_display.html', {'images': Imgs})
 
 def encode_image(file_name):
