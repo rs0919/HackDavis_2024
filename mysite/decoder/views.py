@@ -36,7 +36,8 @@ def index(request):
         return HttpResponse("placeholder text")
 
 def secret_message_view(request):
-    secret_message = decode_img("./media/images_to_decode/encoded_image.png") # change
+    key = "1010101010" # change later so it's not hard coded
+    secret_message = decode_img("./media/images_to_decode/encoded_image.png", key) # change
     os.system('rm -rf ./media/images_to_decode/*') # clear folder
     return HttpResponse("secret_message: " + secret_message)
 
@@ -50,7 +51,7 @@ def bin_to_message(binary):
     return ''.join(message)
 
 
-def decode_img(filepath):
+def decode_img(filepath, key):
     img = Image.open(filepath)
     binary_message = ''
     width, height = img.size
@@ -59,7 +60,7 @@ def decode_img(filepath):
         for col in range(width):
             pixel = list(img.getpixel((col, row)))
             for n in range(3):
-                binary_message += str(pixel[n] & 1)
+                binary_message += str(pixel[n] & 1 ^ int(key[len(binary_message) % len(key)], 2))
                 if binary_message[-16:] == '1111111111111110':
                     return bin_to_message(binary_message[:-16])
     return "No hidden message found."

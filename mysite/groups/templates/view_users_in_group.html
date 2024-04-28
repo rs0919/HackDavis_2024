@@ -10,16 +10,10 @@
     <form method = "post">
         {% csrf_token %}
             {% for user in users.item_set.all %}
-            <b>{{user.email}}</b>
+            <li>{{user.email}}</li>
             {% endfor%}
         
 
-        <div>
-            <div>
-                <button type="submit", name="newItem", value="newItem">Add Item</button>
-            </div>
-            <input type="text", name="new">
-        </div>
 
         <button type="submit", name="save", value="save">Save</button>   
 
