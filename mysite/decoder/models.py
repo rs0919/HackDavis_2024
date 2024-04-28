@@ -4,7 +4,7 @@ from django.db import models
 
 class SecretMessage(models.Model):
     secret_msg = models.CharField(max_length=100)
-    secret_img = models.ImageField(upload_to='image_to_decode/')
+    secret_img = models.ImageField(upload_to='decoded_images/')
 
 class ImgToDecode(models.Model):
-    img = models.ImageField(upload_to='images/')
+    img = models.ImageField(upload_to='images_to_decode/')

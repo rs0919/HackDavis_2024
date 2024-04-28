@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    
+    path("", views.image_view, name="image_upload"),
+    path("secret_message", views.secret_message_view, name="secret_message")
 ]
 
 if settings.DEBUG:

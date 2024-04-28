@@ -12,8 +12,15 @@ def image_view(request):
 
         if form.is_valid():
             form.save()
-            return redirect('secret_message_view')
+            return redirect('secret_message')
     else:
         form = ImgToDecodeForm()
     
     return render(request, 'image_to_decode_form.html', {'form': form})
+
+def index(request):
+    if request == "GET":
+        return HttpResponse("placeholder text")
+
+def secret_message_view(request):
+    return HttpResponse("should be secret img or text here")
