@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .forms import ImgForm
+from .models import Img
 
 # Create your views here.
 
@@ -25,8 +26,10 @@ def success(request):
     return HttpResponse('successfully uploaded')
 
 def encoded_image_view(request):
-    encode_image("../media/images/plain_image")
-    return render(request, 'encoded_image_display.html')
+    if request.method == "GET":
+        encode_image("../media/images/plain_image")
+        Imgs = Img.objects.all()
+        return render((request, 'encoded_image_display.html', {'images': Imgs}))
 
 def encode_image(file_name):
     return 2
