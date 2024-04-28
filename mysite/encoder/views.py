@@ -9,6 +9,9 @@ from PIL import Image
 
 # Create your views here.
 
+def home(request):
+    return render(request, 'encoder/home.html')
+
 def index(request):
     return HttpResponse("encode your image here.")
 

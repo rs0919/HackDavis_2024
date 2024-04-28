@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path("encoder/", include("encoder.urls")),
+    path('encoder/', include('encoder.urls')),
     path("decoder/", include("decoder.urls")),
     path("groups/", include("groups.urls")),
     path('admin/', admin.site.urls),
