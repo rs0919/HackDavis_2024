@@ -5,3 +5,5 @@
 Django ver 4.2.11
 
 pip install pillow
+
+pip install jsonfield
