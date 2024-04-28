@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'encoder.apps.EncoderConfig',
     'decoder.apps.DecoderConfig',
     'groups.apps.GroupsConfig',
-    'encoderImg.apps.EncoderImgConfig'
+    'encoderImg.apps.EncoderimgConfig',
     'bootstrap5'
 ]
 
