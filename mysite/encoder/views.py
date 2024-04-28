@@ -23,3 +23,6 @@ def image_view(request):
 
 def success(request):
     return HttpResponse('successfully uploaded')
+
+def encoded_image_view(request):
+    return render(request, 'encoded_image_display.html')
