@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'encoder.apps.EncoderConfig',
+    'decoder.apps.DecoderConfig',
+    'groups.apps.GroupsConfig',
 ]
 
 MIDDLEWARE = [
