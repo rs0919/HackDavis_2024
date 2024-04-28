@@ -1,25 +1,29 @@
+{% load bootstrap5 %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Decoder App{% endblock %}</title>
+    {% bootstrap_css %}
 </head>
 <body>
-
-<div class="container">
-  <ul class="nav bg-info">
-    <li class="nav-item">
-      <a class="nav-link link-light" href="/">group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link link-light" href="/decoder/">MEMBERS</a>
-    </li>
-  </ul>
-
-  {% block content %}
-  {% endblock %}
-</div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        File Decoder
+                    </div>
+                    <div class="card-body">
+                        {% block content %}
+                        <!-- Dynamic content will be injected here -->
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% bootstrap_javascript %}
 </body>
 </html>
