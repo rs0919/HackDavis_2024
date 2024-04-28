@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .forms import ImgToDecodeForm
 from .models import ImgToDecode
 
+import os
+
 from PIL import Image
 # Create your views here.
 
@@ -26,7 +28,8 @@ def index(request):
 
 def secret_message_view(request):
     secret_message = decode_img("./media/images_to_decode/encoded_image.png") # change
-    return HttpResponse("secret_message:" + secret_message)
+    os.system('rm -rf ./media/images_to_decode/*') # clear folder
+    return HttpResponse("secret_message: " + secret_message)
 
 
 def bin_to_message(binary):
