@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'decoder.apps.DecoderConfig',
     'groups.apps.GroupsConfig',
     'encoderImg.apps.EncoderimgConfig',
-    'bootstrap5'
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

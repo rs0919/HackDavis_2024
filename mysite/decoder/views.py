@@ -55,7 +55,7 @@ def decode_img(filepath, key):
     img = Image.open(filepath)
     binary_message = ''
     width, height = img.size
-    # add key to verify same group
+
     for row in range(height):
         for col in range(width):
             pixel = list(img.getpixel((col, row)))
