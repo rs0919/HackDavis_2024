@@ -23,7 +23,7 @@ def image_view(request):
             source = "plain_image.png"
             for root, dirs, files in os.walk("./media/images/"):
                 for file in files:
-                    if file.endswith('.png') or file.endswith('.jpg'):
+                    if file.endswith('.png') or file.endswith('.jpg') or file.endswith('.jpeg'):
                         source = str(file)
             os.rename("./media/images/" + source, "./media/images/plain_image.png")
             # this code block ^ renames the image to the same thing every time            
@@ -31,7 +31,7 @@ def image_view(request):
             source2 = "secret_image.png"
             for root, dirs, files in os.walk("./media/secret_images/"):
                 for file in files:
-                    if file.endswith('.png') or file.endswith('.jpg'):
+                    if file.endswith('.png') or file.endswith('.jpg') or file.endswith('.jpeg'):
                         source2 = str(file)
             os.rename("./media/secret_images/" + source2, "./media/secret_images/secret_image.png")
             # this code block ^ renames the image to the same thing every time            
